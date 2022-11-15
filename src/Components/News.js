@@ -1,9 +1,14 @@
 import "./News.css";
-
-export default function News() {
+import Post from "./Posts/Post";
+export default function News({ posts }) {
+  console.log("posts in News:", posts);
   return (
     <div className="News">
-      <p>Here come the news!</p>
+      <ol className="News-ol">
+        {posts.map((element) => (
+          <Post posts={element} />
+        ))}
+      </ol>
     </div>
   );
 }
