@@ -1,9 +1,17 @@
 import "./Navbar.css";
+import icon from "../H.TEAL.png";
 
 export default function Navbar() {
   return (
     <div className="navbar">
-      <h4>Hacker News</h4>
+      <a href="top" className="ahrefIcon">
+        <img src={icon} alt="H Icon" className="icon" />
+      </a>
+      <h4>
+        <a href="top" className="ahrefHN">
+          Hacker News
+        </a>
+      </h4>
       <form className="search">
         <input
           className="search-input"
@@ -13,13 +21,12 @@ export default function Navbar() {
         ></input>
       </form>
       <ul className="navbar-list">
-        <li>new</li>
+        <li className="liElement">new</li>
         <li>past</li>
         <li>comments</li>
         <li>ask</li>
         <li>show</li>
         <li>jobs</li>
-        <li>submit</li>
       </ul>
     </div>
   );

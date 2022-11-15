@@ -16,10 +16,10 @@ export default function Post({ posts }) {
   console.log("Now is ", current);
 
   return (
-    <div>
+    <div className="listDiv">
       <li className="listItem">
         <a href={posts.url}>
-          <h3>{posts.title}</h3>
+          <h4 className="hNews">{posts.title}</h4>
         </a>
         <p className="listPara">
           {posts.points} points | by {posts.author} | {posts.created_at} | Now
