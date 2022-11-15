@@ -1,16 +1,15 @@
 .listItem {
-  font-size: smaller;
   margin: 0px;
   padding: 0px;
 }
 .listPara {
-  font-size: smaller;
   color: rgb(100, 100, 100);
   margin: 1px;
 }
 
 .hNews {
   margin: 0px;
+  font-size: larger;
 }
 
 .listDiv {
@@ -28,4 +27,24 @@
 a:link {
   text-decoration: none;
   color: rgb(31, 31, 31);
+}
+
+@media (prefers-color-scheme: dark) {
+  .listPara {
+    color: rgb(130, 129, 129);
+    margin: 1px;
+  }
+
+  .News-ol {
+    padding-top: 1px;
+    color: rgb(181, 181, 181);
+  }
+  a:link {
+    text-decoration: none;
+    color: rgb(181, 181, 181);
+  }
+
+  a:visited {
+    color: teal;
+  }
 }

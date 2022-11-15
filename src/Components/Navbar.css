@@ -5,11 +5,11 @@
   align-items: center;
   background-color: teal;
   color: ghostwhite;
-  font-size: x-small;
+  font-size: larger;
   position: sticky;
   top: 10px;
-  height: 25px;
-  border-width: 1px 0px;
+  height: 50px;
+  border-width: 2px 0px;
   border-color: black;
   border-style: solid;
 }
@@ -30,7 +30,7 @@
   flex: auto;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 ul {
@@ -44,7 +44,7 @@ ul {
 }
 
 .search-input {
-  font-size: x-small;
+  font-size: large;
 }
 
 .icon {

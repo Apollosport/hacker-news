@@ -8,3 +8,10 @@
 * {
   font-family: Ubuntu, Lato, serif;
 }
+
+@media (prefers-color-scheme: dark) {
+  .App {
+    background-color: black;
+    color: ghostwhite;
+  }
+}
