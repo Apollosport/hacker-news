@@ -1,0 +1,11 @@
+.listItem {
+  font-size: smaller;
+  line-height: 5px;
+}
+.listPara {
+  padding-bottom: 15px;
+}
+
+.News-ol {
+  padding-top: 1px;
+}
