@@ -19,6 +19,7 @@
   align-items: center;
   padding-right: 1%;
   color: ghostwhite;
+  cursor: pointer;
 }
 
 .ahrefHN {
@@ -40,12 +41,9 @@ ul {
   margin: 0;
 }
 
-.search {
-  margin-left: 2%;
-}
-
 .search-input {
   font-size: large;
+  margin-left: 2%;
 }
 
 .icon {

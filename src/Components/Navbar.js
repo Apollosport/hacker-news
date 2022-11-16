@@ -2,22 +2,27 @@ import "./Navbar.css";
 import icon from "../H.TEAL.png";
 import { useEffect, useState } from "react";
 
-export default function Navbar({ posts, setPosts }) {
+export default function Navbar({ setUrl, setPosts }) {
   const [input, setInput] = useState("");
+  const startUrl = "http://hn.algolia.com/api/v1/search?tags=front_page";
+  const searchUrl = `http://hn.algolia.com/api/v1/search?query=${input}&tags=story`;
+  const newUrl = "http://hn.algolia.com/api/v1/search_by_date?tags=story";
+  const commentUrl = "http://hn.algolia.com/api/v1/search_by_date?tags=comment";
+  const askUrl = "http://hn.algolia.com/api/v1/search?tags=ask_hn";
+  const showUrl = "http://hn.algolia.com/api/v1/search?tags=show_hn";
 
-  const searchIUrl = `http://hn.algolia.com/api/v1/search?query=${input}&tags=story`;
-
-  function searchFunction() {
+  /*   function searchFunction() {
     fetch(searchIUrl)
       .then((res) => res.json())
       .then((data) => {
         setPosts(data.hits);
-        //console.log("articles:", data.hits);
+        console.log("articles:", data.hits);
       })
       .catch((e) => console.error(e));
-  }
+  } */
   useEffect(() => {
-    searchFunction();
+    /* searchFunction(); */
+    setUrl(searchUrl);
   }, [input]);
   // function submitHandler(e) {
   //   e.preventDefault();
@@ -29,14 +34,16 @@ export default function Navbar({ posts, setPosts }) {
   return (
     <div className="navbar">
       <a href="top" className="ahrefIcon">
-        <img src={icon} alt="H Icon" className="icon" />
+        <img
+          src={icon}
+          alt="H Icon"
+          className="icon"
+          onClick={() => setUrl(startUrl)}
+        />
       </a>
-      <h4>
-        <a href="top" className="ahrefHN">
-          Hacker News
-        </a>
+      <h4 className="ahrefHN" onClick={() => setUrl(startUrl)}>
+        Hacker News
       </h4>
-
       <input
         className="search-input"
         type="text"
@@ -47,15 +54,15 @@ export default function Navbar({ posts, setPosts }) {
       />
 
       <ul className="navbar-list">
-        <li className="liElement">new</li>
+        <li onClick={() => setUrl(newUrl)}>new</li>
         <p className="navP">|</p>
         <li>past</li>
         <p className="navP">|</p>
-        <li>comments</li>
+        <li onClick={() => setUrl(commentUrl)}>comments</li>
         <p className="navP">|</p>
-        <li>ask</li>
+        <li onClick={() => setUrl(askUrl)}>ask</li>
         <p className="navP">|</p>
-        <li>show</li>
+        <li onClick={() => setUrl(showUrl)}>show</li>
         <p className="navP">|</p>
         <li>jobs</li>
       </ul>

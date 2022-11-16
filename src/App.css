@@ -9,7 +9,8 @@
   font-family: Ubuntu, Lato, serif;
 }
 
-.spinnerDiv {
+.spinnerDiv,
+.noData {
   display: flex;
   align-content: center;
   justify-content: center;

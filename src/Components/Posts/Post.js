@@ -9,7 +9,7 @@ export default function Post({ posts }) {
         <h4 className="hNews" onClick={() => window.open(posts.url, "_blank")}>
           {posts.title}
         </h4>
-
+        {console.log(posts)}
         <p className="listPara">
           Points {posts.points} | Article by: {posts.author} |Created At:{" "}
           {posts.created_at} |Comments {posts.num_comments}

@@ -5,9 +5,13 @@ import News from "./Components/News";
 import { useState, useEffect } from "react";
 import { SpinnerCircular } from "spinners-react";
 function App() {
-  const url = "http://hn.algolia.com/api/v1/search?tags=front_page";
+  //const url = "http://hn.algolia.com/api/v1/search?tags=front_page";
+
   const [posts, setPosts] = useState([]);
   const [onLoading, setOnloading] = useState(false);
+  const [url, setUrl] = useState(
+    "http://hn.algolia.com/api/v1/search?tags=front_page"
+  );
 
   function fetchData() {
     setOnloading(true);
@@ -25,23 +29,25 @@ function App() {
           setPosts(data.hits);
           setOnloading(false);
         })
-        .catch((e) => console.error(e));
-    }, 2000);
+        .catch((e) => alert(e.message));
+    }, 3000);
   }
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [url]);
 
   return (
     <div className="App">
-      <Navbar posts={posts} setPosts={setPosts} />
-      {onLoading && (
+      <Navbar setPosts={setPosts} setUrl={setUrl} />
+      {onLoading ? (
         <div className="spinnerDiv">
+          <p>Loading......................</p>
           <SpinnerCircular />
         </div>
+      ) : (
+        <News posts={posts} />
       )}
-      <News posts={posts} />
       <Footer />
     </div>
   );
