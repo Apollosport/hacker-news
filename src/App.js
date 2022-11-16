@@ -42,7 +42,7 @@ function App() {
       <Navbar setPosts={setPosts} setUrl={setUrl} />
       {onLoading ? (
         <div className="spinnerDiv">
-          <p>Loading......................</p>
+          <p>Loading12345......................</p>
           <SpinnerCircular />
         </div>
       ) : (
