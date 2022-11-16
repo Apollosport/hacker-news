@@ -29,14 +29,6 @@ function App() {
     }, 2000);
   }
 
-  // function fetchData2() {
-  //   fetch("http://hn.algolia.com/api/v1/items/:id")
-  //     .then((res) => res.json())
-  //     .then((data) => console.log("hello", data))
-  //     .catch((e) => console.error(e));
-  // }
-  // fetchData2();
-
   useEffect(() => {
     fetchData();
   }, []);

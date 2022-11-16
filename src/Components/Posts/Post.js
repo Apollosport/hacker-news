@@ -3,27 +3,16 @@ import "./Post.css";
 export default function Post({ posts }) {
   //console.log("Posts in Post: ", posts);
 
-  /* const getTime = () => {
-    const current = new Date();
-    console.log("Now is ", current);
-    return current;
-  }; */
-  const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
-
-  console.log("Now is ", current);
-
   return (
     <div className="listDiv">
       <li className="listItem">
-        <a href={posts.url}>
-          <h4 className="hNews">{posts.title}</h4>
-        </a>
+        <h4 className="hNews" onClick={() => window.open(posts.url, "_blank")}>
+          {posts.title}
+        </h4>
+
         <p className="listPara">
-          {posts.points} points | by {posts.author} | {posts.created_at} | Now
-          is {posts.num_comments} comments | date: {date}
+          Points {posts.points} | Article by: {posts.author} |Created At:{" "}
+          {posts.created_at} |Comments {posts.num_comments}
         </p>
       </li>
     </div>

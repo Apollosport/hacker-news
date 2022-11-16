@@ -1,11 +1,15 @@
 import "./News.css";
 import Post from "./Posts/Post";
 export default function News({ posts }) {
-  console.log("posts in News:", posts);
+  //console.log("posts in News:", posts);
   return (
     <div className="News">
       <ol className="News-ol">
-        {posts ? posts.map((element) => <Post posts={element} />) : "No News"}
+        {posts.length === 0 ? (
+          <div className="noData">No data Found</div>
+        ) : (
+          posts.map((element) => <Post posts={element} />)
+        )}
       </ol>
     </div>
   );

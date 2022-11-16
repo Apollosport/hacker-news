@@ -10,6 +10,8 @@
 .hNews {
   margin: 0px;
   font-size: larger;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .listDiv {
