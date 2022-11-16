@@ -16,7 +16,9 @@
   justify-content: center;
   min-height: 90vh;
 }
-
+.spinnerDiv > p {
+  color: black;
+}
 @media (prefers-color-scheme: dark) {
   .App {
     background-color: black;
