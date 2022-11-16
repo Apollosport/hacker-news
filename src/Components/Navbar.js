@@ -48,15 +48,15 @@ export default function Navbar({ posts, setPosts }) {
 
       <ul className="navbar-list">
         <li className="liElement">new</li>
-        <p>|</p>
+        <p className="navP">|</p>
         <li>past</li>
-        <p>|</p>
+        <p className="navP">|</p>
         <li>comments</li>
-        <p>|</p>
+        <p className="navP">|</p>
         <li>ask</li>
-        <p>|</p>
+        <p className="navP">|</p>
         <li>show</li>
-        <p>|</p>
+        <p className="navP">|</p>
         <li>jobs</li>
       </ul>
     </div>

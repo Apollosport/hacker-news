@@ -37,7 +37,7 @@ function App() {
     <div className="App">
       <Navbar posts={posts} setPosts={setPosts} />
       {onLoading && (
-        <div>
+        <div className="spinnerDiv">
           <SpinnerCircular />
         </div>
       )}
