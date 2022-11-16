@@ -5,9 +5,7 @@ export default function News({ posts }) {
   return (
     <div className="News">
       <ol className="News-ol">
-        {posts.map((element) => (
-          <Post posts={element} />
-        ))}
+        {posts ? posts.map((element) => <Post posts={element} />) : "No News"}
       </ol>
     </div>
   );
