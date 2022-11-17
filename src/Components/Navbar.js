@@ -20,15 +20,7 @@ export default function Navbar({ setUrl }) {
     }.${current.getFullYear()}`;
     return date;
   }
-  /*   function searchFunction() {
-    fetch(searchIUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setPosts(data.hits);
-        console.log("articles:", data.hits);
-      })
-      .catch((e) => console.error(e));
-  } */
+
   useEffect(() => {
     /* searchFunction(); */
     setUrl(searchUrl);

@@ -14,7 +14,8 @@ function App() {
     "http://hn.algolia.com/api/v1/search?tags=front_page"
   );
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(5);
+  // const [postsPerPage, setPostsPerPage] = useState(5);
+  const postsPerPage = 5;
 
   /* Get Current posts */
   const indexOfLastPost = currentPage * postsPerPage;
@@ -57,11 +58,7 @@ function App() {
           <SpinnerCircular />
         </div>
       ) : (
-<<<<<<< HEAD
-        <News posts={posts} setUrl={setUrl} />
-=======
-        <News posts={currentPosts} />
->>>>>>> 243fe1ff9f944d96ea10b81e68f9d8c38c7150dc
+        <News posts={currentPosts} setUrl={setUrl} />
       )}
       <Pagination
         totalPosts={posts.length}

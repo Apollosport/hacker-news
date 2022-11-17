@@ -1,22 +1,13 @@
 import "./Post.css";
+import moment from "moment";
+
 export default function Post({ posts, setUrl }) {
   const authUrl = `http://hn.algolia.com/api/v1/search?tags=story,author_${posts.author}`;
   //console.log("Posts in Post: ", posts);
+  const timeago = moment(posts.created_at).fromNow();
 
   function extractDate() {
     const date = new Date();
-    /* console.log(
-      posts.created_at.substr(11, 2),
-      " seconds ",
-      Date.UTC(
-        posts.created_at.substr(0, 4),
-        posts.created_at.substr(5, 2),
-        posts.created_at.substr(8, 2),
-        posts.created_at.substr(11, 2),
-        posts.created_at.substr(14, 2),
-        posts.created_at.substr(17, 2)
-      ) 
-    );*/
     return (
       Date.now() -
       Date.UTC(
@@ -28,42 +19,6 @@ export default function Post({ posts, setUrl }) {
         posts.created_at.substr(17, 2)
       )
     );
-  }
-
-  function getDate() {
-    const current = new Date();
-    const date = `${current.getFullYear()}/${
-      current.getMonth() + 1
-    }/${current.getDate()}`;
-    console.log("hier ", current);
-    return date;
-  }
-
-  function time() {
-    const date1 = new Date(
-      posts.created_at.substr(0, 4) +
-        "/" +
-        posts.created_at.substr(5, 2) +
-        "/" +
-        posts.created_at.substr(8, 2)
-    );
-    const current = new Date();
-    const date2 = `${current.getFullYear()}/${
-      current.getMonth() + 1
-    }/${current.getDate()}`;
-    console.log("date2 ", " date1 ", date1.substr(8, 2));
-    const time1 = date1 - current;
-    console.log("time ", time1);
-    time1 = time1 / (1000 * 3600 * 24);
-    return time1;
-  }
-
-  function diffTime(date2, date1) {
-    return Math.abs(date2 - date1);
-  }
-
-  function diffDays(date2, date1) {
-    return Math.ceil(diffTime(date2, date1) / (1000 * 60 * 60 * 24));
   }
 
   return (
@@ -89,7 +44,7 @@ export default function Post({ posts, setUrl }) {
             className="clickComment"
           >
             {" "}
-            | created at: {posts.created_at} | {posts.num_comments} comments{" "}
+            | created at: {timeago}| {posts.num_comments} comments{" "}
           </p>
         </div>
       </li>
