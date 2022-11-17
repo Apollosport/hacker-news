@@ -33,15 +33,14 @@ export default function Navbar({ setUrl, setPosts }) {
 
   return (
     <div className="navbar">
-      <a href="top" className="ahrefIcon">
-        <img
-          src={icon}
-          alt="H Icon"
-          className="icon"
-          onClick={() => setUrl(startUrl)}
-        />
-      </a>
-      <h4 className="ahrefHN" onClick={() => setUrl(startUrl)}>
+      <img
+        src={icon}
+        alt="H Icon"
+        className="icon"
+        onClick={() => setUrl(startUrl)}
+      />
+
+      <h4 className="HN" onClick={() => setUrl(startUrl)}>
         Hacker News
       </h4>
       <input
@@ -54,15 +53,23 @@ export default function Navbar({ setUrl, setPosts }) {
       />
 
       <ul className="navbar-list">
-        <li onClick={() => setUrl(newUrl)}>new</li>
+        <li onClick={() => setUrl(newUrl)} className="clickLI">
+          new
+        </li>
         <p className="navP">|</p>
         <li>past</li>
         <p className="navP">|</p>
-        <li onClick={() => setUrl(commentUrl)}>comments</li>
+        <li onClick={() => setUrl(commentUrl)} className="clickLI">
+          comments
+        </li>
         <p className="navP">|</p>
-        <li onClick={() => setUrl(askUrl)}>ask</li>
+        <li onClick={() => setUrl(askUrl)} className="clickLI">
+          ask
+        </li>
         <p className="navP">|</p>
-        <li onClick={() => setUrl(showUrl)}>show</li>
+        <li onClick={() => setUrl(showUrl)} className="clickLI">
+          show
+        </li>
         <p className="navP">|</p>
         <li>jobs</li>
       </ul>

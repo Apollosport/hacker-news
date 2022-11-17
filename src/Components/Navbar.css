@@ -14,16 +14,23 @@
   border-style: solid;
 }
 
-.ahrefIcon {
+.icon {
   display: flex;
   align-items: center;
   padding-right: 1%;
   color: ghostwhite;
   cursor: pointer;
+  height: 16px;
+  padding-right: 1%;
 }
 
-.ahrefHN {
+.HN {
   color: ghostwhite !important;
+  cursor: pointer;
+}
+
+.clickLI {
+  cursor: pointer;
 }
 
 .navbar-list {
@@ -44,11 +51,6 @@ ul {
 .search-input {
   font-size: large;
   margin-left: 2%;
-}
-
-.icon {
-  height: 16px;
-  padding-right: 1%;
 }
 
 .navP {
