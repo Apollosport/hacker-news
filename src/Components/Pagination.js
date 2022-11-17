@@ -1,4 +1,3 @@
-import Post from "./Posts/Post";
 import { useState, useEffect } from "react";
 import "./Pagination.css";
 export default function Pagination({
@@ -9,10 +8,8 @@ export default function Pagination({
   currentPage,
   setCurrentPage,
 }) {
-  //console.log("posts in News:", posts);
   const pageNumber = [];
-  const [input, setInput] = useState(5);
-  /*   const regex = new RegExp(/^[1-9]$|^0[1-4]$|^1[0-9]$|^20$/); */
+  const [input, setInput] = useState(postsPerPage);
   const regex = new RegExp(/[0-9]/g);
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
