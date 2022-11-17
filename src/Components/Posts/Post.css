@@ -3,6 +3,8 @@
   padding: 0px;
 }
 .listPara {
+  display: flex;
+  flex-direction: row;
   color: rgb(100, 100, 100);
   margin: 1px;
 }
@@ -29,6 +31,10 @@
 a:link {
   text-decoration: none;
   color: rgb(31, 31, 31);
+}
+
+.clickComment {
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {

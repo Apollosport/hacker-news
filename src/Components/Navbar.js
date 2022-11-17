@@ -2,15 +2,24 @@ import "./Navbar.css";
 import icon from "../H.TEAL.png";
 import { useEffect, useState } from "react";
 
-export default function Navbar({ setUrl, setPosts }) {
+export default function Navbar({ setUrl }) {
   const [input, setInput] = useState("");
   const startUrl = "http://hn.algolia.com/api/v1/search?tags=front_page";
   const searchUrl = `http://hn.algolia.com/api/v1/search?query=${input}&tags=story`;
   const newUrl = "http://hn.algolia.com/api/v1/search_by_date?tags=story";
-  const commentUrl = "http://hn.algolia.com/api/v1/search_by_date?tags=comment";
+  const commentUrl = "http://hn.algolia.com/api/v1/search?tags=comment";
   const askUrl = "http://hn.algolia.com/api/v1/search?tags=ask_hn";
   const showUrl = "http://hn.algolia.com/api/v1/search?tags=show_hn";
+  const pastUrl =
+    "http://hn.algolia.com/api/v1/search?created_at_i=2022-11-15T";
 
+  function getDate() {
+    const current = new Date();
+    const date = `${current.getDate()}.${
+      current.getMonth() + 1
+    }.${current.getFullYear()}`;
+    return date;
+  }
   /*   function searchFunction() {
     fetch(searchIUrl)
       .then((res) => res.json())
@@ -57,7 +66,9 @@ export default function Navbar({ setUrl, setPosts }) {
           new
         </li>
         <p className="navP">|</p>
-        <li>past</li>
+        <li onClick={() => setUrl(commentUrl)} className="clickLI">
+          past
+        </li>
         <p className="navP">|</p>
         <li onClick={() => setUrl(commentUrl)} className="clickLI">
           comments
@@ -72,6 +83,8 @@ export default function Navbar({ setUrl, setPosts }) {
         </li>
         <p className="navP">|</p>
         <li>jobs</li>
+        <p className="navP">|</p>
+        <li>{getDate()}</li>
       </ul>
     </div>
   );

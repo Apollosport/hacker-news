@@ -39,14 +39,14 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setPosts={setPosts} setUrl={setUrl} />
+      <Navbar setUrl={setUrl} />
       {onLoading ? (
         <div className="spinnerDiv">
           <p>Loading123......................</p>
           <SpinnerCircular />
         </div>
       ) : (
-        <News posts={posts} />
+        <News posts={posts} setUrl={setUrl} />
       )}
       <Footer />
     </div>
