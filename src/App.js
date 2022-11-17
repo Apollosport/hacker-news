@@ -14,8 +14,8 @@ function App() {
     "http://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50"
   );
   const [currentPage, setCurrentPage] = useState(1);
-  // const [postsPerPage, setPostsPerPage] = useState(5);
-  const postsPerPage = 5;
+  const [postsPerPage, setPostsPerPage] = useState(5);
+  // const postsPerPage = 5;
 
   /* Get Current posts */
   const indexOfLastPost = currentPage * postsPerPage;

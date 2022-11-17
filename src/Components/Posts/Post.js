@@ -42,7 +42,7 @@ export default function Post({ posts, setUrl }) {
             className="clickComment"
           >
             {" "}
-            | created at: {posts.created_at} | {posts.num_comments} comments{" "}
+            | created at: {timeago} | {posts.num_comments} comments{" "}
           </p>
         </div>
       </li>
