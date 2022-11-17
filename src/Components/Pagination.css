@@ -1,11 +1,16 @@
 .pagination {
+  background-color: rgb(203, 199, 199);
+  height: 3vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  text-align: start;
+  position: sticky;
+  bottom: 0;
+  left: 0;
 }
-li {
-  list-style: none;
-}
+
 .News-ol a {
   border: 1px solid rgb(10, 10, 10);
   border-radius: 5px;
@@ -31,4 +36,13 @@ li {
   height: 25px;
   width: 25px;
   text-align: center;
+}
+
+.ppp {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.pppp {
+  margin-right: 20px;
 }

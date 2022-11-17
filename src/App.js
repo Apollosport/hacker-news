@@ -11,7 +11,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [onLoading, setOnloading] = useState(false);
   const [url, setUrl] = useState(
-    "http://hn.algolia.com/api/v1/search?tags=front_page"
+    "http://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50"
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(5);
@@ -57,16 +57,20 @@ function App() {
           <SpinnerCircular />
         </div>
       ) : (
-<<<<<<< HEAD
-        <News posts={posts} setUrl={setUrl} />
-=======
-        <News posts={currentPosts} />
->>>>>>> 243fe1ff9f944d96ea10b81e68f9d8c38c7150dc
+        <News
+          posts={currentPosts}
+          setUrl={setUrl}
+          currentPage={currentPage}
+          postsPerPage={postsPerPage}
+        />
       )}
       <Pagination
         totalPosts={posts.length}
         postsPerPage={postsPerPage}
         paginate={paginate}
+        setPostsPerPage={setPostsPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
       <Footer />
     </div>
