@@ -18,25 +18,13 @@ export default function Navbar({ setUrl }) {
   const pastUrl =
     "http://hn.algolia.com/api/v1/search?created_at_i=2022-11-15T&hitsPerPage=50";
 
-  /*   function searchFunction() {
-    fetch(searchIUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setPosts(data.hits);
-        console.log("articles:", data.hits);
-      })
-      .catch((e) => console.error(e));
-  } */
   useEffect(() => {
-    /* searchFunction(); */
     setUrl(searchUrl);
   }, [input]);
-  // function submitHandler(e) {
-  //   e.preventDefault();
-  // }
-  function changeHandler(e) {
+
+  const changeHandler = (e) => {
     setInput(e.target.value);
-  }
+  };
 
   return (
     <div className="navbar">

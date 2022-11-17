@@ -1,7 +1,6 @@
 import "./News.css";
 import Post from "./Posts/Post";
 export default function News({ posts, setUrl, currentPage, postsPerPage }) {
-  /*  console.log("posts in News:", posts); */
   return (
     <div className="News">
       <ol className="News-ol" start={(currentPage - 1) * postsPerPage + 1}>
