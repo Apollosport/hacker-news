@@ -33,18 +33,16 @@ export default function Post({ posts, setUrl }) {
           {posts.created_at} | {posts.num_comments} comments
         </p> */}
         <div className="listPara">
-          <p>{posts.points} points | article by: </p> <p> </p>
+          <p>{posts.points} points | article by: </p> <div>&nbsp;</div>
           <p onClick={() => setUrl(authUrl)} className="clickComment">
-            {" "}
             {posts.author}
-            {` `}
           </p>
           <p
             onClick={() => console.log(extractDate())}
             className="clickComment"
           >
             {" "}
-            | created at: {timeago}| {posts.num_comments} comments{" "}
+            | created at: {posts.created_at} | {posts.num_comments} comments{" "}
           </p>
         </div>
       </li>
