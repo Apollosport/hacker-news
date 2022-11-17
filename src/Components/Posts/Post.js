@@ -1,5 +1,6 @@
 import Datetime from "react-datetime";
 import "./Post.css";
+
 export default function Post({ posts }) {
   //console.log("Posts in Post: ", posts);
 
