@@ -4,6 +4,7 @@ import Footer from "./Components/Footer";
 import News from "./Components/News";
 import { useState, useEffect } from "react";
 import { SpinnerCircular } from "spinners-react";
+import Pagination from "./Components/Pagination";
 function App() {
   //const url = "http://hn.algolia.com/api/v1/search?tags=front_page";
 
@@ -12,7 +13,17 @@ function App() {
   const [url, setUrl] = useState(
     "http://hn.algolia.com/api/v1/search?tags=front_page"
   );
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(5);
 
+  /* Get Current posts */
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  function paginate(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
   function fetchData() {
     setOnloading(true);
     setTimeout(() => {
@@ -42,12 +53,21 @@ function App() {
       <Navbar setUrl={setUrl} />
       {onLoading ? (
         <div className="spinnerDiv">
-          <p>Loading123......................</p>
+          <p>Loading......................</p>
           <SpinnerCircular />
         </div>
       ) : (
+<<<<<<< HEAD
         <News posts={posts} setUrl={setUrl} />
+=======
+        <News posts={currentPosts} />
+>>>>>>> 243fe1ff9f944d96ea10b81e68f9d8c38c7150dc
       )}
+      <Pagination
+        totalPosts={posts.length}
+        postsPerPage={postsPerPage}
+        paginate={paginate}
+      />
       <Footer />
     </div>
   );
