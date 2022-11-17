@@ -31,7 +31,7 @@ export default function Pagination({
   const submitHandler = (e) => {
     e.preventDefault();
     setPostsPerPage(input);
-    console.log(regex.test(input));
+    //console.log(regex.test(input));
   };
 
   useEffect(() => {
