@@ -3,7 +3,7 @@ import icon from "../H.TEAL.png";
 import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 
-export default function Navbar({ setUrl, comments }) {
+export default function Navbar({ setUrl, setComments }) {
   const [input, setInput] = useState("");
   const [see, setsee] = useState(false);
   const day = 86400;
@@ -85,11 +85,17 @@ export default function Navbar({ setUrl, comments }) {
       /* date.setDate(date.getDate() - 1);*/
       /*       console.log(pastUrl); */
     }
+    setComments(false);
   };
 
-  const urlFunction = (urlInput) => {
-    setUrl(urlInput);
+  const urlFunction = (urlInput, comm) => {
     setsee(false);
+    if (!comm) {
+      setUrl(urlInput);
+      setComments(false);
+    } else {
+      setComments(true);
+    }
   };
 
   const showDate = () => {
@@ -127,7 +133,7 @@ export default function Navbar({ setUrl, comments }) {
             past
           </li>
           <p className="navP">|</p>
-          <li onClick={() => urlFunction(commentUrl)} className="clickLI">
+          <li onClick={() => urlFunction(commentUrl, true)} className="clickLI">
             comments
           </li>
           <p className="navP">|</p>

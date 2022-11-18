@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import SingleComment from "./SingleComment";
+/* import axios from "axios";
+ */ import SingleComment from "./SingleComment";
 export default function Comment() {
   const [articles, setArticles] = useState([]);
 

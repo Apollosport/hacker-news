@@ -16,6 +16,7 @@ function App() {
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  const [comments, setComments] = useState(false);
 
   /* Get Current posts */
   const indexOfLastPost = currentPage * postsPerPage;
@@ -45,17 +46,18 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, [url]);
+  }, [url, comments]);
 
-  const comments = false;
   return (
     <div className="App">
-      <Navbar setUrl={setUrl} comments={comments} />
+      <Navbar setUrl={setUrl} setComments={setComments} />
       {onLoading ? (
         <div className="spinnerDiv">
           <p>Loading......................</p>
           <SpinnerCircular />
         </div>
+      ) : comments ? (
+        <></>
       ) : (
         <News
           posts={currentPosts}
@@ -64,16 +66,18 @@ function App() {
           postsPerPage={postsPerPage}
         />
       )}
-      <Comment />
-      <Pagination
-        totalPosts={posts.length}
-        postsPerPage={postsPerPage}
-        paginate={paginate}
-        setPostsPerPage={setPostsPerPage}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-
+      {comments ? (
+        <Comment />
+      ) : (
+        <Pagination
+          totalPosts={posts.length}
+          postsPerPage={postsPerPage}
+          paginate={paginate}
+          setPostsPerPage={setPostsPerPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
       <Footer />
     </div>
   );
