@@ -12,11 +12,13 @@ export default function Navbar({ setUrl, comments }) {
   let date = parseInt(DateTime.now().toSeconds()) - day;
   let date2 = date - day * 2;
 
-  const startUrl =
-    "http://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50";
-  const searchUrl = `http://hn.algolia.com/api/v1/search?query=${input}&tags=story&hitsPerPage=50`;
-  const newUrl =
-    "http://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=50";
+  const mainUrl = "http://hn.algolia.com/api/v1";
+
+  const startUrl = `${mainUrl}/search?tags=front_page&hitsPerPage=50`;
+
+  const searchUrl = `${mainUrl}/search?query=${input}&tags=story&hitsPerPage=50`;
+  const newUrl = `${mainUrl}/search_by_date?tags=story&hitsPerPage=50`;
+
   const commentUrl =
     "http://hn.algolia.com/api/v1/search?tags=comment&hitsPerPage=50";
   const askUrl =
