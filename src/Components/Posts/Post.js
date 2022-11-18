@@ -11,6 +11,8 @@ export default function Post({ posts, setUrl }) {
         <h4 className="hNews" onClick={() => window.open(posts.url, "_blank")}>
           {posts.title}
         </h4>
+        {/* {console.log(posts.url)} */}
+        <p> {posts.url}</p>
         <div className="listPara">
           <p>{posts.points} points | article by: </p> <div>&nbsp;</div>
           <p onClick={() => setUrl(authUrl)} className="clickComment">
