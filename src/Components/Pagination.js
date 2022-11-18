@@ -28,7 +28,6 @@ export default function Pagination({
   const submitHandler = (e) => {
     e.preventDefault();
     setPostsPerPage(input);
-    //console.log(regex.test(input));
   };
 
   useEffect(() => {
@@ -37,6 +36,7 @@ export default function Pagination({
 
   return (
     <div className="pagination">
+      <p className="hitscount">{totalPosts} hits </p>
       <form onSubmit={submitHandler}>
         <input
           type="number"
@@ -61,11 +61,11 @@ export default function Pagination({
       >
         &laquo;
       </a>
-      {pageNumber.map((number, index) => (
-        <div>
-          <ul className="News-ol">
-            <li key={index} className="page">
-              <a href="!#" onClick={() => paginate(number)}>
+      {pageNumber.map((number) => (
+        <div key={number}>
+          <ul key={number} className="News-ol">
+            <li key={number} className="page">
+              <a href="!#" onClick={() => paginate(number)} key={number}>
                 {number}
               </a>
             </li>

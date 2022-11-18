@@ -14,6 +14,29 @@
   border-style: solid;
 }
 
+.navbar-outer {
+  text-align: center;
+  position: sticky;
+  top: 10px;
+}
+
+.button-div {
+  margin-top: 5px;
+}
+
+.button-past {
+  border: 1px solid rgb(10, 10, 10);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: lightgrey;
+  display: inline-block;
+  height: 25px;
+  width: 30px;
+  text-align: center;
+  margin-right: 5px;
+}
+
 .icon {
   display: flex;
   align-items: center;
@@ -55,4 +78,12 @@ ul {
 
 .navP {
   color: rgb(203, 199, 199);
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: "";
 }
