@@ -38,14 +38,16 @@ export default function Navbar({ setUrl }) {
       <h4 className="HN" onClick={() => setUrl(startUrl)}>
         Hacker News
       </h4>
-      <input
-        className="search-input"
-        type="text"
-        size="18"
-        placeholder="Search"
-        onChange={changeHandler}
-        value={input}
-      />
+      <form>
+        <input
+          className="search-input"
+          type="text"
+          size="18"
+          placeholder="Search"
+          onChange={changeHandler}
+          value={input}
+        />
+      </form>
 
       <ul className="navbar-list">
         <li onClick={() => setUrl(newUrl)} className="clickLI">

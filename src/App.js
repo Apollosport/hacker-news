@@ -5,6 +5,7 @@ import News from "./Components/News";
 import { useState, useEffect } from "react";
 import { SpinnerCircular } from "spinners-react";
 import Pagination from "./Components/Pagination";
+
 function App() {
   const [posts, setPosts] = useState([]);
   const [onLoading, setOnloading] = useState(false);
@@ -28,7 +29,7 @@ function App() {
       fetch(url)
         .then((response) => {
           if (!response.ok) {
-            throw Error(response.statusText);
+            throw new Error(response.statusText);
           }
           return response.json();
         })
@@ -60,6 +61,7 @@ function App() {
           postsPerPage={postsPerPage}
         />
       )}
+
       <Pagination
         totalPosts={posts.length}
         postsPerPage={postsPerPage}
@@ -68,6 +70,7 @@ function App() {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
+
       <Footer />
     </div>
   );
