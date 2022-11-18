@@ -6,9 +6,9 @@ export default function SingleComment({ articles }) {
   return (
     <>
       {articles.map((article) => (
-        <div>
-          <h4>{article.story_title}</h4>
-          <p>{article.comment_text}</p>
+        <div className="listDiv commentdiv">
+          <h4 className="hNews">{article.story_title}</h4>
+          <p listPara>{article.comment_text}</p>
           <p>
             Comment by: {article.author} | created_at : {timeago} | Points{" "}
             {article.points}
