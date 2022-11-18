@@ -12,7 +12,7 @@ export default function Post({ posts, setUrl }) {
           {posts.title}
         </h4>
         {/* {console.log(posts.url)} */}
-        <p> {posts.url}</p>
+        {/* <p> {posts.url}</p> */}
         <div className="listPara">
           <p>{posts.points} points | article by: </p> <div>&nbsp;</div>
           <p onClick={() => setUrl(authUrl)} className="clickComment">
