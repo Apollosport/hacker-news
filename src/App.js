@@ -53,7 +53,6 @@ function App() {
       <Navbar setUrl={setUrl} setComments={setComments} />
       {onLoading ? (
         <div className="spinnerDiv">
-          <p>Loading......................</p>
           <SpinnerCircular />
         </div>
       ) : comments ? (
