@@ -9,8 +9,14 @@ export default function Navbar({ setUrl, setComments }) {
   const day = 86400;
   const month = 2628000;
   const year = 31536000;
-  let date = parseInt(DateTime.now().toSeconds()) - day;
-  let date2 = date - day * 2;
+  /* let date = parseInt(DateTime.now().toSeconds()) - day;
+  let date2 = date - day * 2; */
+  const [date1, setDate1] = useState(
+    parseInt(DateTime.now().toSeconds()) - day
+  );
+  const [date2, setDate2] = useState(
+    parseInt(DateTime.now().toSeconds()) - 2 * day
+  );
 
   const mainUrl = "http://hn.algolia.com/api/v1";
 
@@ -30,60 +36,52 @@ export default function Navbar({ setUrl, setComments }) {
     setUrl(searchUrl);
   }, [input]);
 
+  useEffect(() => {
+    setUrl(
+      `http://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3e${date2},created_at_i%3c${date1}&hitsPerPage=50`
+    );
+  }, [date1]);
+
   const changeHandler = (e) => {
     setInput(e.target.value);
   };
 
   const setDay = (direction) => {
-    /*     let date = parseInt(DateTime.now().toSeconds()) - day;
-    let date2 = date - day * 2; */
-    console.log("before date ", date, " date2 ", date2);
     if (direction) {
-      date += day;
-      date2 += day;
+      setDate1((prev) => prev + day);
+      setDate2((prev) => prev + day);
     } else {
-      date -= day;
-      date2 -= day;
+      setDate1((prev) => prev - day);
+      setDate2((prev) => prev - day);
     }
-    console.log("after date ", date, " date2 ", date2);
-    /* setUrl(pastUrl); */
-    setUrl(
-      `http://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3e${date2},created_at_i%3c${date}&hitsPerPage=50`
-    );
   };
 
   const setMonth = (direction) => {
-    /* if (direction) {
-      date += month;
-      date2 += month;
+    if (direction) {
+      setDate1((prev) => prev + month);
+      setDate2((prev) => prev + month);
     } else {
-      date -= month;
-      date2 -= month;
+      setDate1((prev) => prev - month);
+      setDate2((prev) => prev - month);
     }
-    setUrl(pastUrl); */
   };
 
   const setYear = (direction) => {
-    /* if (direction) {
-      date += year;
-      date2 += year;
+    if (direction) {
+      setDate1((prev) => prev + year);
+      setDate2((prev) => prev + year);
     } else {
-      date -= year;
-      date2 -= year;
+      setDate1((prev) => prev - year);
+      setDate2((prev) => prev - year);
     }
-    setUrl(pastUrl); */
   };
 
   const pastUrlFinder = () => {
     setsee((e) => !e);
     if (!see) {
-      /* let date = parseInt(DateTime.now().toSeconds()) - day;
-      let date2 = date - day * 2; */
       setUrl(
-        `http://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3e${date2},created_at_i%3c${date}&hitsPerPage=50`
+        `http://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3e${date2},created_at_i%3c${date1}&hitsPerPage=50`
       );
-      /* date.setDate(date.getDate() - 1);*/
-      /*       console.log(pastUrl); */
     }
     setComments(false);
   };
@@ -96,12 +94,6 @@ export default function Navbar({ setUrl, setComments }) {
     } else {
       setComments(true);
     }
-  };
-
-  const showDate = () => {
-    let date3 = DateTime.now().toSeconds();
-    /* console.log(parseInt(date.toSeconds())); */
-    console.log(parseInt(date3));
   };
 
   return (
@@ -196,14 +188,6 @@ export default function Navbar({ setUrl, setComments }) {
           }}
         >
           +y
-        </button>
-        <button
-          className="button-past"
-          onClick={() => {
-            showDate();
-          }}
-        >
-          showdate
         </button>
       </div>
     </div>
