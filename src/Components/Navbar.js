@@ -2,7 +2,7 @@ import "./Navbar.css";
 import icon from "../H.TEAL.png";
 import { useEffect, useState } from "react";
 
-export default function Navbar({ setUrl }) {
+export default function Navbar({ setUrl, comments }) {
   const [input, setInput] = useState("");
   const date = Date.now() - 86400000;
   const date2 = date - 86400000 * 2;
@@ -51,16 +51,15 @@ export default function Navbar({ setUrl }) {
       <h4 className="HN" onClick={() => setUrl(startUrl)}>
         Hacker News
       </h4>
-      <form>
-        <input
-          className="search-input"
-          type="text"
-          size="18"
-          placeholder="Search"
-          onChange={changeHandler}
-          value={input}
-        />
-      </form>
+
+      <input
+        className="search-input"
+        type="text"
+        size="18"
+        placeholder="Search"
+        onChange={changeHandler}
+        value={input}
+      />
 
       <ul className="navbar-list">
         <li onClick={() => setUrl(newUrl)} className="clickLI">

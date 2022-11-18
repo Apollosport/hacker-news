@@ -5,10 +5,12 @@ import News from "./Components/News";
 import { useState, useEffect } from "react";
 import { SpinnerCircular } from "spinners-react";
 import Pagination from "./Components/Pagination";
+import Comment from "./Components/Comment";
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [onLoading, setOnloading] = useState(false);
+
   const [url, setUrl] = useState(
     "http://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50"
   );
@@ -45,9 +47,10 @@ function App() {
     fetchData();
   }, [url]);
 
+  const comments = false;
   return (
     <div className="App">
-      <Navbar setUrl={setUrl} />
+      <Navbar setUrl={setUrl} comments={comments} />
       {onLoading ? (
         <div className="spinnerDiv">
           <p>Loading......................</p>
@@ -61,7 +64,7 @@ function App() {
           postsPerPage={postsPerPage}
         />
       )}
-
+      <Comment />
       <Pagination
         totalPosts={posts.length}
         postsPerPage={postsPerPage}
