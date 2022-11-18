@@ -40,8 +40,14 @@
 .ppp {
   width: 40px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .pppp {
   margin-right: 20px;
+}
+
+.hitscount {
+  color: rgb(10, 10, 10);
+  font-size: 0.9em;
 }
