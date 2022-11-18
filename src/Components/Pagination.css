@@ -1,6 +1,6 @@
 .pagination {
   background-color: rgb(203, 199, 199);
-  height: 3vh;
+  height: 35px;
   display: flex;
   flex-direction: row;
   justify-content: center;
