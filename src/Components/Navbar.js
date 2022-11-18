@@ -44,33 +44,32 @@ export default function Navbar({ setUrl, setComments }) {
     setInput(e.target.value);
   };
 
-  const setDay = (direction) => {
-    if (direction) {
-      setDate1((prev) => prev + day);
-      setDate2((prev) => prev + day);
-    } else {
-      setDate1((prev) => prev - day);
-      setDate2((prev) => prev - day);
-    }
-  };
-
-  const setMonth = (direction) => {
-    if (direction) {
-      setDate1((prev) => prev + month);
-      setDate2((prev) => prev + month);
-    } else {
-      setDate1((prev) => prev - month);
-      setDate2((prev) => prev - month);
-    }
-  };
-
-  const setYear = (direction) => {
-    if (direction) {
-      setDate1((prev) => prev + year);
-      setDate2((prev) => prev + year);
-    } else {
-      setDate1((prev) => prev - year);
-      setDate2((prev) => prev - year);
+  const setDates = (direction, length) => {
+    switch (true) {
+      case direction === true && length === "d":
+        setDate1((prev) => prev + day);
+        setDate2((prev) => prev + day);
+        break;
+      case direction === false && length === "d":
+        setDate1((prev) => prev - day);
+        setDate2((prev) => prev - day);
+        break;
+      case direction === true && length === "m":
+        setDate1((prev) => prev + month);
+        setDate2((prev) => prev + month);
+        break;
+      case direction === false && length === "m":
+        setDate1((prev) => prev - month);
+        setDate2((prev) => prev - month);
+        break;
+      case direction === true && length === "y":
+        setDate1((prev) => prev + year);
+        setDate2((prev) => prev + year);
+        break;
+      case direction === false && length === "y":
+        setDate1((prev) => prev - year);
+        setDate2((prev) => prev - year);
+        break;
     }
   };
 
@@ -142,7 +141,7 @@ export default function Navbar({ setUrl, setComments }) {
         <button
           className="button-past"
           onClick={() => {
-            setDay(false);
+            setDates(false, "d");
           }}
         >
           -d
@@ -150,7 +149,7 @@ export default function Navbar({ setUrl, setComments }) {
         <button
           className="button-past"
           onClick={() => {
-            setMonth(false);
+            setDates(false, "m");
           }}
         >
           -m
@@ -158,7 +157,7 @@ export default function Navbar({ setUrl, setComments }) {
         <button
           className="button-past"
           onClick={() => {
-            setYear(false);
+            setDates(false, "y");
           }}
         >
           -y
@@ -166,7 +165,7 @@ export default function Navbar({ setUrl, setComments }) {
         <button
           className="button-past"
           onClick={() => {
-            setDay(true);
+            setDates(true, "d");
           }}
         >
           +d
@@ -174,7 +173,7 @@ export default function Navbar({ setUrl, setComments }) {
         <button
           className="button-past"
           onClick={() => {
-            setMonth(true);
+            setDates(true, "m");
           }}
         >
           +m
@@ -182,7 +181,7 @@ export default function Navbar({ setUrl, setComments }) {
         <button
           className="button-past"
           onClick={() => {
-            setYear(true);
+            setDates(true, "y");
           }}
         >
           +y
